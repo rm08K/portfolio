@@ -1,28 +1,9 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
+    <div class="topView">
       <h1 class="title">
-        portfolio
+        RyosuKe
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
   </div>
 </template>
@@ -41,6 +22,10 @@ export default {}
   text-align: center;
 }
 
+.topView {
+  block-size: 100vh;
+}
+
 .title {
   font-family:
     'Quicksand',
@@ -54,7 +39,7 @@ export default {}
     sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 80px;
   color: #35495e;
   letter-spacing: 1px;
 }
