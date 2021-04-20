@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="topView">
+      <Self />
       <h1 class="title">
         RyosuKe
       </h1>
@@ -24,6 +25,10 @@ export default {}
 
 .topView {
   block-size: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 }
 
 .title {
@@ -37,11 +42,12 @@ export default {}
     'Helvetica Neue',
     Arial,
     sans-serif;
-  display: block;
+  display: inline-block;
   font-weight: 300;
   font-size: 80px;
   color: #35495e;
   letter-spacing: 1px;
+  margin-top: 20px;
 }
 
 .subtitle {
