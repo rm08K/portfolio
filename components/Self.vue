@@ -1,5 +1,5 @@
 <template>
-  <img class="selfPort" src="~/assets/self.png" alt="自画像">
+  <img class="selfPort" src="images/self.png" alt="自画像">
 </template>
 
 <style>
