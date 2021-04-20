@@ -7,7 +7,13 @@
       </h1>
     </div>
     <div class="secondView">
-
+      <h2 class="subTitle">
+        about
+      </h2>
+      <p>
+        パソコンが好きで色々やっています。
+        <br>Webを勉強しています。好きなものを作りたい。
+      </p>
     </div>
   </div>
 </template>
@@ -20,9 +26,6 @@ export default {}
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
@@ -51,5 +54,14 @@ export default {}
   color: #35495e;
   letter-spacing: 1px;
   margin-top: 20px;
+}
+
+.secondView {
+  min-block-size: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  background-color: #eee;
 }
 </style>
