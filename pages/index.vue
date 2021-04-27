@@ -13,7 +13,24 @@
       <p>
         パソコンが好きで色々やっています。
         <br>Webを勉強しています。好きなものを作りたい。
+        <br>動画の編集もやったりしてます。
       </p>
+    </div>
+    <div class="secondView white">
+      <h2 class="subTitle">
+        works
+      </h2>
+      <div class="flexboxContainer">
+        <div class="flexboxContainer-contents">
+          <img class="flexboxContainer-contents_img" src="images/website/website_small_1.jpg" alt="">
+        </div>
+        <div class="flexboxContainer-contents">
+          <img class="flexboxContainer-contents_img" src="images/website/website_small_2.jpg" alt="">
+        </div>
+        <div class="flexboxContainer-contents">
+          <img class="flexboxContainer-contents_img" src="images/website/youtube1.jpg" alt="">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +39,7 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -63,5 +80,25 @@ export default {}
   align-items: center;
   flex-flow: column;
   background-color: #eee;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.flexboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &-contents {
+    min-inline-size: 300px;
+    max-inline-size: 30vw ;
+    margin: 10px;
+    &_img {
+      inline-size: 100%;
+    }
+  }
+}
+@media screen and (max-width:1000px){
 }
 </style>
