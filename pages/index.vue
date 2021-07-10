@@ -11,9 +11,10 @@
         about
       </h2>
       <p>
-        パソコンが好きで色々やっています。
-        <br>Webを勉強しています。好きなものを作りたい。
-        <br>動画の編集もやったりしてます。
+        1999年生まれ。
+        <br>パソコンが好きで小さい頃から色々触ってきました。
+        <br>現在はWebのコーディングとデザインを勉強しています。
+        <br>Adobe製品全般を扱うことができるので、動画の編集もやったりしてます。
       </p>
     </div>
     <div class="secondView white">
@@ -22,13 +23,41 @@
       </h2>
       <div class="flexboxContainer">
         <div class="flexboxContainer-contents">
-          <img class="flexboxContainer-contents_img" src="images/website/website_small_1.jpg" alt="">
+          <div>
+            <img class="flexboxContainer-contents_img " src="images/website/website_small_1.jpg" alt="" @click="openModal1">
+            <Modal v-if="modalFlag1" @close-modal="closeModal1">
+              <div class="flexboxContainer-modal">
+                <h3>デジタルハリウッド大学のWebデザイン・開発を知るサイト</h3>
+              </div>
+              <button class="flexboxContainer-contents_button" @click="closeModal1">
+                閉じる
+              </button>
+            </Modal>
+          </div>
         </div>
         <div class="flexboxContainer-contents">
-          <img class="flexboxContainer-contents_img" src="images/website/website_small_2.jpg" alt="">
+          <div>
+            <img class="flexboxContainer-contents_img " src="images/website/website_small_2.jpg" alt="" @click="openModal2">
+            <Modal v-if="modalFlag2" @close-modal="closeModal2">
+              <div>
+                <h3>Bデジタルハリウッド大学のWebデザイン・開発を知るサイト</h3>
+              </div>
+              <button class="flexboxContainer-contents_button" @click="closeModal2">
+                閉じる
+              </button>
+            </Modal>
+          </div>
         </div>
         <div class="flexboxContainer-contents">
-          <img class="flexboxContainer-contents_img" src="images/website/youtube1.jpg" alt="">
+          <div>
+            <img class="flexboxContainer-contents_img " src="images/website/youtube1.jpg" alt="" @click="openModal3">
+            <Modal v-if="modalFlag3" @close-modal="closeModal3">
+              <div>Cモーダルの内容</div>
+              <button class="flexboxContainer-contents_button" @click="closeModal3">
+                閉じる
+              </button>
+            </Modal>
+          </div>
         </div>
       </div>
     </div>
@@ -36,7 +65,43 @@
 </template>
 
 <script>
-export default {}
+// export default {}
+import Vue from 'vue'
+import Modal from '~/components/Modal.vue'
+
+export default Vue.extend({
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      modalFlag1: false,
+      modalFlag2: false,
+      modalFlag3: false
+    }
+  },
+  methods: {
+    openModal1() {
+      this.modalFlag1 = true
+    },
+    closeModal1() {
+      this.modalFlag1 = false
+    },
+    openModal2() {
+      this.modalFlag2 = true
+    },
+    closeModal2() {
+      this.modalFlag2 = false
+    },
+    openModal3() {
+      this.modalFlag3 = true
+    },
+    closeModal3() {
+      this.modalFlag3 = false
+    }
+  }
+})
+// ここほんとにひどいw
 </script>
 
 <style lang="scss">
@@ -96,9 +161,15 @@ export default {}
     margin: 10px;
     &_img {
       inline-size: 100%;
+      cursor: pointer;
     }
   }
 }
+
+.modal__content {
+  overflow: scroll;
+}
+
 @media screen and (max-width:1000px){
 }
 </style>
