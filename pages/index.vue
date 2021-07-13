@@ -240,7 +240,7 @@ export default Vue.extend({
 }
 
 .modalbox {
-  overflow: scroll;
+  // overflow: scroll;
   inline-size: 100%;
   &-title {
     margin-top: 0;
