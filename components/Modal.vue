@@ -37,15 +37,15 @@ export default Vue.extend({
   }
 
   &__window {
-    height: 70%;
-    width: 70%;
+    height: 80%;
+    width: 80%;
     overflow: hidden;
     background-color: white;
   }
 
   &__content {
     height: calc(100% - 60px);
-    padding: 30px;
+    padding: 20px;
   }
 }
 
