@@ -1,20 +1,19 @@
-# portfolio
+# Portfolio
 
-## Build Setup
+Vite + Vue 3 + TypeScript で構成した静的ポートフォリオです。
 
-```bash
-# install dependencies
-$ yarn install
+## 開発
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+```sh
+bun install
+bun run dev
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## 検証・ビルド
+
+```sh
+bun run check
+bun run build
+```
+
+依存関係の新規解決では、`bunfig.toml` により公開から48時間未満のバージョンを除外します。さらに Socket の Bun Security Scanner がインストール前に依存パッケージを検査します。
