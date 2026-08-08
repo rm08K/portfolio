@@ -4,12 +4,13 @@ import BaseModal from './components/BaseModal.vue'
 import SelfPortrait from './components/SelfPortrait.vue'
 
 const activeWork = ref<number | null>(null)
+const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 const works = [
   {
     title: 'デジタルハリウッド大学のWebデザイン・開発を知るサイト',
-    thumbnail: '/images/website/website_small_1.jpg',
-    image: '/images/website/website_1.png',
+    thumbnail: assetPath('images/website/website_small_1.jpg'),
+    image: assetPath('images/website/website_1.png'),
     period: '2週間程度',
     tools: 'Adobe XD, Photoshop, Visual Studio Code, HTML, CSS, JavaScript',
     description: '大学のWebサイトをリデザインする課題の一環で制作しました。画像は全て元々用意されていたものを使用しています。動きに集中して制作したので、アニメーションが少し強めに入っています。レスポンシブデザイン標準です。（リンクは機能しません）',
@@ -20,8 +21,8 @@ const works = [
   },
   {
     title: 'Static to Nuxt',
-    thumbnail: '/images/website/website_small_2.jpg',
-    image: '/images/website/website_2.png',
+    thumbnail: assetPath('images/website/website_small_2.jpg'),
+    image: assetPath('images/website/website_2.png'),
     period: '2週間程度',
     tools: 'Photoshop, Visual Studio Code, Nuxt.js, Vue.js, HTML, CSS, JavaScript',
     description: '元々すでにデザインされたサイトをコーディングする課題にてHTMLで制作したものを、NuxtでSPAに書き換えたものです。このポートフォリオと同じくNuxtのFull Static Generationを使用してコーディングしています。SPAなのでシームレスに別のページへ遷移します。',
@@ -32,7 +33,7 @@ const works = [
   },
   {
     title: '南国料理人っぽいことをしてみた',
-    thumbnail: '/images/website/youtube1.jpg',
+    thumbnail: assetPath('images/website/youtube1.jpg'),
     period: '1ヶ月弱',
     tools: 'iPhone, Adobe Premiere Pro, Photoshop',
     description: 'フードロス問題を解決する提案の動画を作成する課題の一環にて制作しました。制限時間が1分と短いため、それを利用してわちゃわちゃとした動画になっています。企画・キャストはチームのメンバーが、撮影・編集は自分が行っています。',
