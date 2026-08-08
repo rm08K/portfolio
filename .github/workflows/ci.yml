@@ -1,52 +1,36 @@
-name: ci
+name: CI
 
 on:
-  push:
-    branches:
-      - main
-      - master
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
+  verify:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      - name: Check out source
+        uses: actions/checkout@v6
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2.1.2
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
+          bun-version: 1.3.14
 
-      - name: Get yarn cache directory path 🛠
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      - name: Restore Bun cache
+        uses: actions/cache@v4
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: ${{ runner.os }}-bun-
 
-      - name: Install dependencies 👨🏻‍💻
-        run: yarn
+      - name: Install locked dependencies
+        run: bun ci
 
-      - name: Run linter 👀
-        run: yarn lint
+      - name: Check for known high-severity vulnerabilities
+        run: bun audit --audit-level=high
 
-      - name: Run tests 🧪
-        run: yarn test
+      - name: Type-check, lint, and build
+        run: bun run ci

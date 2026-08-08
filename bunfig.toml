@@ -1,0 +1,7 @@
+[install]
+# 新規解決時、公開から48時間未満のパッケージを除外する。
+minimumReleaseAge = 172800
+linker = "isolated"
+
+[install.security]
+scanner = "@socketsecurity/bun-security-scanner"
